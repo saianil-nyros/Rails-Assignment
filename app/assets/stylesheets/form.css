@@ -1,0 +1,16 @@
+	.formtable{
+		margin-top: 10%;
+		
+		}
+	.paragraphError{
+		color: red;
+		}
+	body{
+		background-color: silver;
+		}
+	.tdform{
+		
+		padding: 25px;
+		background-color: grey;
+		color: black;
+		}

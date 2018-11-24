@@ -1,0 +1,141 @@
+		body{
+		background-color: #004080;
+			}
+		section{
+			margin-top: 0px;
+
+		}
+		.Register{
+			float: right;
+			font-size: 25px;
+			color: red;
+			text-decoration: none;
+		}
+		.Register:hover{
+			color: red;
+			text-decoration: none;
+
+		}
+		
+		.side{
+			text-decoration:none;
+			color: green;
+			font-size: 25px;
+			text-decoration-style: none;
+		}
+		.side:hover{
+			cursor:pointer;
+		}
+		.side a{
+			text-decoration: none;
+			color: green;
+		}
+		.side a:hover{
+			text-decoration: none;
+			color: white;
+		}
+		.down{
+			text-decoration:none;
+			color: green;
+			font-size: 25px;
+			text-decoration-style: none;
+			margin-bottom: 8px;
+		}
+		.down:hover{
+			cursor:pointer;
+		}
+		.down a{
+			text-decoration: none;
+			color: green;
+		}
+		.down a:hover{
+			text-decoration: none;
+			color: white;
+		}
+		.team{
+			color:brown;
+			background-color: grey;
+		}
+		header{
+			line-height: 10%;
+			padding: 15px;
+			text-align:center;
+			background-color:#16A085;
+			color:#000066;
+			padding-top: 10px;
+			padding-right: 15px;
+			padding-left: 10px;
+		}
+		
+		h3{
+			color:#cc4518;
+		}
+
+		.navbar{
+
+			
+			padding: 15px;
+			
+			background-color: #113962;
+		}
+		.navbar a{
+			font-size: 22px;
+			text-decoration: none;
+			margin: 6px;
+			color: lightblue;
+		}
+
+		.intro{
+			
+			/*float: left; */
+			
+			display: inline;
+			
+			
+			/*background-color:lightblue;*/
+			color: black;
+		}
+		.intro p{
+			display: inline;
+			font-size: 25px;
+		}
+		h4{
+			color: white;
+			font-size: 28px;
+			color: #cc4518; 				
+		}
+		h5{
+			color:  #cc4518;
+		}
+		.feedback {
+			background-color:  lightgreen;
+			font-color: silver;
+			font-size: 20px;
+		}
+		.text{
+			color: black;
+			margin: 15px;
+
+		}
+
+		.yes{
+			background-color: green;
+			outline: none;
+		}
+		.partially{
+			background-color: orange;
+			outline: none;
+		}
+		.NO{
+			background-color: red;
+			outline: none;
+		}
+		.footer{
+
+			padding-bottom: 20px;
+			padding-top: 10px;
+			margin-right: auto;
+			margin-left: auto;
+			text-align: center;
+			background-color: #16A085;
+		}
