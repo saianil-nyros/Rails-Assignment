@@ -1,0 +1,64 @@
+
+    <%= form_with model: @article, local: true do |form| %>
+
+    <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="jumbotron">
+
+      <div  class=" container formheader">
+        <h3  class="btn btn-info textarticles1 "><b>New article</b></h3>
+      </div>
+      <table >
+
+        <div class="container  bg-light formtable ">
+
+          <div class=" bg-dark">
+
+            <p class="fieldpadding">
+              <%= form.label :title,:class=>"formlabel" %><br>
+              <%= form.text_field :title,:class=>"form-control  formlabel required"  %>
+            </p>
+
+            <p class="fieldpadding">
+
+              <%= form.label :description,:class=>"formlabel" %><br>
+              <%= form.text_area :description,:class=>"form-control formlabel"  %>
+
+            </p>
+
+            <p class="fieldpadding">
+          <%= form.label :category,:class=>"formlabel" %><br>
+          <%= form.select(:category, ([['Horror'], ['Comedy'],['Adventure'],['Action']]), {}, {class: "form-control"}) %>
+
+          <div class="form-group">
+            <div class="form-width">
+              <p class="fieldpadding formlabel">
+                Is Published
+                <input name="tag[&lt;id&gt;&lt;/id&gt;]" type="hidden" value="0" /><input required="required" type="checkbox" value="1" name="tag[&lt;id&gt;&lt;/id&gt;]" id="tag_&lt;id&gt;&lt;/id&gt;" />
+              </p>
+            </div>
+          </div>
+          <p >
+            <div class="form-group fieldpadding">
+              <div class=" ">
+                <%= link_to 'Back', articles_path,:class=>"btn btn-warning backbutton" %>
+                <%= form.submit 'save', :class=>"btn btn-success savebutton " %> 
+              </div>
+            </div>
+          </p>
+        </div> </div>
+        <% end %>
+      </table>
+    </div>
