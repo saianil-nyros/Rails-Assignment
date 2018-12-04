@@ -1,0 +1,44 @@
+
+    <%= form_with model: @article, local: true do |form| %>
+    <div class="jumbotron">
+      <div  class=" container formheader">
+        <h3  class="btn btn-info textarticles1 "><b>New article</b></h3>
+      </div>
+      <table >
+        <div class="container  bg-light formtable ">
+          <div class=" bg-dark">
+            <p class="fieldpadding">
+              <%= form.label :title,:class=>"formlabel" %>
+              <%= form.text_field :title,:class=>"form-control  formlabel required"%>
+             <small class="errortext"><%= @article.errors.messages[:title].first if @article.errors.messages[:title].any? %>
+            </small></p>
+          <p class="fieldpadding">
+            <%= form.label :description,:class=>"formlabel" %>
+            <%= form.text_area :description,:class=>"form-control formlabel" %>
+             <small class="errortext"><%= @article.errors.messages[:description].first if @article.errors.messages[:description].any? %></small>
+           </p>
+           <p class="fieldpadding">
+             <%= @article.author_id%>
+             <%= form.label :author ,:class=>"formlabel" %>
+             <%= form.select :author_id, Author.all.pluck(:name, :id), { prompt: 'Select' }, { class: "form-control" } %>
+             <small class="errortext"><%= @article.errors.messages[:author].first if @article.errors.messages[:author].any? %></small>
+            </p>
+         </p>
+        <p class="fieldpadding">
+          <%= form.label :category,:class=>"formlabel" %>
+          <%= form.select(:category, ([[''],['Horror'], ['Comedy'],['Adventure'],['Action']]), {}, {class: "form-control"}) %>
+        <small class="errortext"><%= @article.errors.messages[:category].first if @article.errors.messages[:category].any? %></small>
+      </p>
+          
+          <p>
+            <div class="form-group fieldpadding">
+              <div class=" ">
+                <%= link_to 'Back', articles_path,:class=>"btn btn-warning backbutton" %>
+                <%= form.submit 'save', :class=>"btn btn-success savebutton " %> 
+              </div>
+            </div>
+          </p>
+        </div> </div>
+        <% end %>
+      </table>
+    </div>

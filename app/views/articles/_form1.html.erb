@@ -1,0 +1,22 @@
+<div class="container">
+ <p class="fieldpadding">
+ 		    <%= form_with model: @article, local: true do |form| %>
+
+ 		    <p class="fieldpadding">
+ 		   <%= form.label :category,:class=>"formlabel" %><br>
+          <%= form.select(:category, ([['sai'], ['Ram'],['Akhil'],['chaitanya']]), {}, {class: "form-control"}) %>
+ 		    </p>
+
+ 		    <p class="fieldpadding">
+              <%= form.label :title,:class=>"formlabel" %><br>
+              <%= form.text_field :title,:class=>"form-control  formlabel required"  %>
+            </p>
+
+            <p class="fieldpadding">
+
+              <%= form.label :description,:class=>"formlabel" %><br>
+              <%= form.text_area :description,:class=>"form-control formlabel"  %>
+			</p>
+             <%= form.submit 'save', :class=>"btn btn-primary" %> 
+ <% end %>
+</div>
