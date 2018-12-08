@@ -1,0 +1,30 @@
+<div class="container">
+ <%= form_with  model:@author,local: true do |form| %>
+  	<p class="fieldpadding">
+        <%= form.label :name,:class=>"formlabel"%>
+        <%= form.text_field :name,:class=>"form-control formlabel required"%>
+      <small class="errortext"><%= @author.errors.messages[:name].first if @author.errors.messages[:name].any? %>
+            </small></p>
+    </p>
+
+      <%= form.fields_for :profile, @author_profile do |prof| %>
+     	<p class="fieldpadding">
+        <%= prof.label :phone,:class=>"formlabel" %>
+        <%= prof.text_field :phone,:class=>"form-control formlabel required"%>
+        <small class="errortext"><%= @author.profile.errors.messages[:phone].first if @author.profile.errors.messages[:phone].any? %>
+            </small>
+         
+  	</p>
+    <p class="fieldpadding">
+        <%= prof.label :email,:class=>"formlabel"%>
+        <%= prof.text_field :email,:class=>"form-control formlabel required"%>
+         <small class="errortext"><%= @author.profile.errors.messages[:email].first if @author.profile.errors.messages[:email].any? %>
+            </small>
+    </p>
+  <% end %>
+
+    <div class="form-group fieldpadding">
+        <%= form.submit 'save',:class=>"btn btn-success savebutton" %>  
+  	</div>
+	<% end %>
+</div>

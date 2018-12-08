@@ -1,0 +1,61 @@
+<div class="jumbotron mt-3">
+  <div class="container showpage">
+    <badge class="btn btn-primary textarticles">Articles</badge>
+  </div>
+  <div class="container mt-3 showtable">
+    <table class="table table-hover table-striped table-bordered bg-white ">
+      <div class="newarticle">
+        <%= link_to 'New article', new_article_path,:class=>"btn btn-success newarticle"  %>
+      </div>
+      <thead class="bg-light">
+        <tr>
+          <th>Article Title</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Author</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <% @articles.each do |article| %>
+      <tr>
+          <td>
+            <%= article.title %>
+          </td>
+          <td>
+            <%= article.description %>
+          </td>
+          <td>
+            <%= article.category.name %>
+          </td>
+          <td>
+            <%= article.author.name %>
+          </td>
+        <div>
+          <td>
+            <%= link_to 'View', article_path(article),:class => "btn btn-success"  %>
+            <%= link_to 'Edit', edit_article_path(article),:class => "btn btn-warning" %>
+            <%= link_to 'Destroy', '#', "data-toggle"=>"modal", "data-target" => "#delete-#{article.id}",:class=>'btn btn-danger'%>
+            <div class="modal fade" id="delete-<%= article.id %>" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2>Article delete</h2>
+                  </div>
+                  <div class="modal-body">
+                    <p>Are you sure to delete this article</p>
+                  </div>
+                  <div class="modal-footer">
+                    <%= link_to 'Destroy', article_path(article), method: :delete, :class => 'btn btn-danger' %>
+                    <a href="#" data-dismiss="modal" class="btn btn-warning">Cancel</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </div>
+      </tr>
+      <% end %>
+
+    </table>
+  </div>
+</div>
