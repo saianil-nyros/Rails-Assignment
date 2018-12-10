@@ -30,10 +30,8 @@
              <%= form.label :category ,:class=>"formlabel" %>
              <%= form.select :category_id, Category.all.pluck(:name, :id), { prompt: 'Select' }, { class: "form-control" } %>
              
-            </p>
-
-          
-          <p>
+          </p>
+        <p>
             <div class="form-group fieldpadding">
               <div class=" ">
                 <%= link_to 'Back', articles_path,:class=>"btn btn-warning backbutton" %>

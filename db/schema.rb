@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_07_124507) do
+ActiveRecord::Schema.define(version: 2018_12_10_121341) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2018_12_07_124507) do
     t.bigint "author_id", null: false
     t.index ["article_id", "author_id"], name: "index_articles_authors_on_article_id_and_author_id"
     t.index ["author_id", "article_id"], name: "index_articles_authors_on_author_id_and_article_id"
+  end
+
+  create_table "articles_readers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "reader_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,6 +55,12 @@ ActiveRecord::Schema.define(version: 2018_12_07_124507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "author_id"
+  end
+
+  create_table "readers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
