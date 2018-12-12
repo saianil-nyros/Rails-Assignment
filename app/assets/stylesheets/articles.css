@@ -1,0 +1,82 @@
+.showpage{
+	background-color: white;
+	margin-bottom: 5px;
+	height: 38px;
+
+}
+.showtable{
+	background-color: white;
+
+}
+.title{
+	float: right;
+	margin-bottom: 15px;
+}
+.searchcat{
+	width: 28%;
+	margin-bottom: 10px;
+}
+.searchbtn{
+	margin-top: 6px;
+	display: inline-block;
+
+}
+.textarticles{
+	font-size: 12px;
+	margin-top: 5px;
+	height: 28px;
+	width: 85px;
+}
+.textarticles1{
+	margin-top: 7px;
+	width: 94px;
+}
+.newarticle{
+	margin-top: 5px;
+	margin-bottom: 3px;
+}
+
+.formtable{
+	background-color: white;
+	width: 40%;
+}
+th{
+	background-color: #ededed;
+}
+.select{
+	width: 100px;
+}
+.fieldpadding{
+	padding: 8px;
+	margin: 4px;
+
+}
+.formlabel{
+	font-size: 15px;
+
+}
+.savebutton{
+	float: right;
+	margin-bottom: 15px;
+}
+.backbutton{
+	float: left;
+	margin-bottom: 15px;
+}
+.formheader{
+	background-color: white;
+	width: 40%;
+	border-bottom: 3px solid #ededed;
+	padding-bottom: 2px;
+	height: 52px;
+}
+h2{
+	color: black;
+}
+.error{
+	color: red;
+}
+small{
+	color: red;
+	font-size: 14px;
+}

@@ -1,0 +1,2 @@
+class ArticlesReader < ApplicationRecord
+end

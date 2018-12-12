@@ -1,0 +1,20 @@
+<div class="container">
+ <%= form_with model:@profile, local: true do |form| %>
+	<p class="fieldpadding">
+      <%= form.label :phone,:class=>"formlabel" %>
+      <%= form.text_field :phone,:class=>"form-control  formlabel required"%>
+    </p>
+	<p class="fieldpadding">
+      <%= form.label :email,:class=>"formlabel" %>
+      <%= form.text_field :email,:class=>"form-control  formlabel required"%>
+	</p>
+     <p class="fieldpadding">
+      	<%= form.label :author ,:class=>"formlabel" %>
+        <%= form.text_field :author,:class=>"form-control  formlabel required"%>
+    </p>
+     <div class="form-group fieldpadding">
+        <%= form.submit 'save',:class=>"btn btn-success savebutton " %>  
+	</div>
+	<% end %>
+
+</div>
