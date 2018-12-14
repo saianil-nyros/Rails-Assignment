@@ -11,7 +11,10 @@ class Article < ApplicationRecord
 	belongs_to :category
   has_and_belongs_to_many :readers
 
-  after_destroy :log_destroy_action
+scope :title, ->{where(title:'article')}
+ 
+
+	after_destroy :log_destroy_action
 	def log_destroy_action
 		puts 'Article is deleted'
   end

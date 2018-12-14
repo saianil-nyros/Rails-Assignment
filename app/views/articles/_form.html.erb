@@ -19,6 +19,11 @@
              <small class="errortext"><%= @article.errors.messages[:description].first if @article.errors.messages[:description].any? %></small>
            </p>
            <p class="fieldpadding">
+            <%= form.label :Pages,:class=>"formlabel" %>
+            <%= form.text_area :nopages,:class=>"form-control formlabel" %>
+             
+           </p>
+           <p class="fieldpadding">
              <%= @article.author_id%>
              <%= form.label :author ,:class=>"formlabel" %>
              <%= form.select :author_id, Author.all.pluck(:name, :id), { prompt: 'Select' }, { class: "form-control" } %>
@@ -37,7 +42,8 @@
               </div>
             </div>
           </p>
-        </div> </div>
+        </div> 
+      </div>
         <% end %>
       </table>
     </div>

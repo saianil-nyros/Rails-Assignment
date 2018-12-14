@@ -1,17 +1,21 @@
 class ArticlesController < ApplicationController
-    def index
-   @articles = if params[:term]
-          Article.where('title LIKE ?',"%#{params[:term]}")
-       elsif params[:term1]
-          Article.where('category_id LIKE ?',"%#{params[:term1]}")
-       elsif params[:both]
-          Article.where('title LIKE ?',"%#{params[:both]}").or(Author.where('name LIKE ?',"%#{params[:both]}" ))
-       elsif params[:not]
-          Article.where.not('title LIKE ?',"%#{params[:not]}")
-       else
-          Article.all
-       end
+  def index
+    @articles_s =Article.title
+    @articles = if params[:term]
+      Article.where('title LIKE ?',"%#{params[:term]}")
+     elsif params[:term1]
+      Article.where('category_id LIKE ?',"%#{params[:term1]}")
+      elsif params[:both]
+      Article.all.includes(:author).where(authors: {name: params[:both]})
+      elsif params[:not]
+      Article.where.not('title LIKE ?',"%#{params[:not]}")
+     elsif params[:having]
+       Article.where.not(nopages:nil).having('COUNT(*)>1').group(:nopages)
+      else
+        Article.all
+        Article.order('nopages ASC')
     end
+  end
     def show
       @article = Article.find(params[:id])
     end
@@ -37,6 +41,9 @@ class ArticlesController < ApplicationController
         render 'edit'
       end
     end
+    def display
+      @articles=Article.all
+    end
    def destroy
       @article = Article.find(params[:id])
       @article.destroy
@@ -44,8 +51,6 @@ class ArticlesController < ApplicationController
     end
    private
       def article_params
-        params.require(:article).permit(:title,:description, :author_id,:category_id)
+        params.require(:article).permit(:title,:description,:nopages, :author_id,:category_id)
       end
-
-
 end
