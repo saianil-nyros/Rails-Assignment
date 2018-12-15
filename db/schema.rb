@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_13_085042) do
+ActiveRecord::Schema.define(version: 2018_12_15_034137) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_12_13_085042) do
     t.string "status"
     t.integer "category_id"
     t.integer "nopages"
+    t.boolean "checkbox"
   end
 
   create_table "articles_authors", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

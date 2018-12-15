@@ -11,7 +11,7 @@ class Article < ApplicationRecord
 	belongs_to :category
   has_and_belongs_to_many :readers
 
-scope :title, ->{where(title:'article')}
+scope :published, ->{where(checkbox:true)}
  
 
 	after_destroy :log_destroy_action

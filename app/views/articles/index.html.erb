@@ -1,4 +1,5 @@
-  <div class="jumbotron mt-3">
+  
+  <div class="container">
     <div class="container showpage">
       <badge class="btn btn-primary textarticles">Articles</badge>
         <span class="label label-success today"><%= Article.where(created_at: Date.today...Date.today+1).count %></span><b class="today">Today articles posted</b>
@@ -40,6 +41,10 @@
           <%= submit_tag 'search',:class=>"btn-sm btn-primary searchbtn" %>
         <% end %>
     </div>
+    <h4 class="text-center">
+      <%= image_tag("logos/Articles.png",width:'180px',height:'45px',class: 'img-responsive,image') %>
+    </h4>
+    
   <table class="table table-hover table-striped table-bordered bg-white ">
     <thead class="bg-light">
         <tr>
@@ -48,6 +53,7 @@
           <th>No.Pages</th>
           <th>Category</th>
           <th>Author</th>
+          <th>Article published</th>
           <th>Actions</th>
         </tr>                                 
       </thead>
@@ -63,10 +69,13 @@
             <%= article.nopages %>
           </td>
           <td>
-            <%= article.category.name %>
+            <%= article.category.name%>
           </td>
           <td>
-              <%= article.author.name %>
+            <%= article.author_id %>
+          </td>
+          <td>
+              <%= article.checkbox %>
           </td>
           <div>
           <td>
@@ -95,11 +104,7 @@
       <% end %>
     </table>
   </div>
-  <table>
-          <% @articles_s.each do |article| %>
-          <tr>
-            <td><%= article.title %></td>
-          </tr>
-          <% end %>
-  </table>
+ 
 </div>
+
+

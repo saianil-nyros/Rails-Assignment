@@ -8,6 +8,9 @@
         <div class="container  bg-light formtable ">
           <div class=" bg-dark">
             <p class="fieldpadding">
+             
+                <%= image_tag("logos/article.png",width:'65px',height:'15px',class: 'img-responsive profile') %>
+             
               <%= form.label :title,:class=>"formlabel" %>
               <%= form.text_field :title,:class=>"form-control  formlabel required"%>
               <small class="errortext"><%= @article.errors.messages[:title].first if @article.errors.messages[:title].any? %>
@@ -34,6 +37,10 @@
              <%= form.label :category ,:class=>"formlabel" %>
              <%= form.select :category_id, Category.all.pluck(:name, :id), { prompt: 'Select' }, { class: "form-control" } %>
          </p>
+         <p class="fieldpadding">
+        <%= form.check_box :checkbox%>
+            If you want to publish your story accept this!!
+      </p>
           <p>
             <div class="form-group fieldpadding">
               <div class=" ">
