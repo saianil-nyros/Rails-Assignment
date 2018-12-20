@@ -1,19 +1,19 @@
 class ArticlesController < ApplicationController
+  include TimeHelper
   def index
     @articles = if params[:term]
       Article.where('title LIKE ?',"%#{params[:term]}")
       elsif params[:term1]
       Article.where('category_id LIKE ?',"%#{params[:term1]}")
       elsif params[:both]
-      Article.all.joins(:author).where(authors: {name: params[:both]})
-
+      Article.all.includes(:author).where(authors: {name: params[:both]})
       elsif params[:not]
       Article.where.not('title LIKE ?',"%#{params[:not]}")
      elsif params[:having]
        Article.where.not(nopages:nil).having('COUNT(*)>1').group(:nopages)
       else
-        Article.all
-        Article.order('nopages ASC')
+      Article.all
+      Article.order('created_at DESC')
     end
   end
     def show
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
     end
     def create
         @article = Article.new(article_params)
-         if @article.save
+         if @article.save(validation:true)
           redirect_to @article
         else
           render 'new'
@@ -51,6 +51,6 @@ class ArticlesController < ApplicationController
     end
     private
         def article_params
-          params.require(:article).permit(:title,:description,:nopages,:author_id,:category_id,:checkbox)
+          params.require(:article).permit(:title,:description,:nopages,:author_id,:category_id,:checkbox,:image,:file)
         end
-  end
+    end

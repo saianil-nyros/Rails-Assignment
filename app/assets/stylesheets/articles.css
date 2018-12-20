@@ -1,14 +1,29 @@
 .header{
-	
+	background-color: #004F70;
+	margin-top: 3px;
 }
+.footercontent{
+	background-color: white;
+
+}
+
 .today{
 	float: right;
 	margin: 4px;
 	font-size: 18px;
 
 }
+.centerimg{
+	margin-left: 21%;
+	margin-top: 45px;
+}
+.rightimg{
+	margin-top: 10%;
+}
 .headertext{
 	margin-top:15%;
+	color: #DD694E;
+
 }
 .image{
 }
@@ -20,21 +35,25 @@
 	background-color: white;
 	margin-bottom: 5px;
 	height: 38px;
+	border-bottom: 3px solid #EDEDED;
 
+}
+.content{
+	margin: 0 auto;
+	margin-top: 8px;
 }
 .showtable{
 	background-color: white;
 
+
 }
 .counttext{
-	
 	font-size: 16px;
 }
 .articlecount{
 	font-size: 20px;
 }
 .title{
-
 	margin-top: 20px;
 	float: right;
 	margin-bottom: 15px;
@@ -107,8 +126,9 @@ small{
 	color: red;
 	font-size: 14px;
 }
-footer{
+.footer{
 	color: black;
 	height: 18px;
+	background-color: black;
 	
 }

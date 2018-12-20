@@ -1,6 +1,6 @@
   
   <div class="container">
-    <div class="container showpage">
+    <div class="container-fluid showpage">
       <badge class="btn btn-primary textarticles">Articles</badge>
         <span class="label label-success today"><%= Article.where(created_at: Date.today...Date.today+1).count %></span><b class="today">Today articles posted</b>
     </div>
@@ -13,29 +13,21 @@
           <%= text_field_tag :both %>
           <%= submit_tag 'search',:class=>"btn-sm btn-warning" %>
       <% end %> 
-     <!--  <h4>Using having select article title</h4>
-          <%= form_tag(articles_path,method: :get) do %>
-        <%= submit_tag 'search',:class=>"btn-sm btn-primary searchbtn",name:"having",value:"having" %>
-      <% end %> 
-      <h4>Selecting specific</h4>
-          <%= form_tag(articles_path,method: :get) do %>
-          <a href="/display" class="signin  btn btn-primary"  >Specific</a>
-      <% end %> -->
-       <h4>Search another instead of</h4>
+     <h4>Search article by NOT</h4>
         <%= form_tag(articles_path,method: :get) do %>
-           <%= text_field_tag :not %>
-          <%= submit_tag 'search',:class=>"btn-sm btn-info" %>
+        <%= text_field_tag :not %>
+        <%= submit_tag 'search',:class=>"btn-sm btn-info" %>
       <% end %>
       </div>
     <div class="newarticle">
       <h4>Search by article title</h4>
-           <%= form_tag(articles_path,method: :get) do %>
+          <%= form_tag(articles_path,method: :get) do %>
           <%= text_field_tag :term %>
           <%= submit_tag 'search',:class=>"btn-sm btn-success" %>
       <% end %> 
      </div>
     <div class="searchcat">
-        <h4>Search article by category </h4>
+        <h4>Search article by category</h4>
            <%= form_tag(articles_path,method: :get) do %>
           <%= select_tag(:term1, options_from_collection_for_select(Category.all, :id, :name), include_blank: "Select Category", :class=>"form-control" )%>
           <%= submit_tag 'search',:class=>"btn-sm btn-primary searchbtn" %>
@@ -44,7 +36,6 @@
     <h4 class="text-center">
       <%= image_tag("logos/Articles.png",width:'180px',height:'45px',class: 'img-responsive,image') %>
     </h4>
-    
   <table class="table table-hover table-striped table-bordered bg-white ">
     <thead class="bg-light">
         <tr>
@@ -53,6 +44,7 @@
           <th>No.Pages</th>
           <th>Category</th>
           <th>Author</th>
+          <th>Published on date</th>
           <th>Article published</th>
           <th>Actions</th>
         </tr>                                 
@@ -72,10 +64,13 @@
             <%= article.category.name%>
           </td>
           <td>
-            <%= article.author_id %>
+           <%= article.author.name %>
           </td>
           <td>
-              <%= article.checkbox %>
+            <%= article.created_at.strftime("%a %d %Y") %>
+          </td>
+          <td>
+            <%= article.checkbox %>
           </td>
           <div>
           <td>
@@ -104,7 +99,7 @@
       <% end %>
     </table>
   </div>
- 
+    <h4><%= formatted_time %></h4>
 </div>
 
 

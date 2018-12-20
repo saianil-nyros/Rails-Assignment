@@ -1,5 +1,4 @@
-
-    <%= form_with model: @article, local: true do |form| %>
+<%= form_with model:@article, html: { multipart: true } do |form| %>
     <div class="jumbotron">
       <div  class=" container formheader">
         <h3  class="btn btn-info textarticles1 "><b>New article</b></h3>
@@ -8,8 +7,7 @@
         <div class="container  bg-light formtable ">
           <div class=" bg-dark">
             <p class="fieldpadding">
-             
-                <%= image_tag("logos/article.png",width:'65px',height:'15px',class: 'img-responsive profile') %>
+              <%= image_tag("logos/article.png",width:'65px',height:'15px',class: 'img-responsive profile') %>
              
               <%= form.label :title,:class=>"formlabel" %>
               <%= form.text_field :title,:class=>"form-control  formlabel required"%>
@@ -38,19 +36,32 @@
              <%= form.select :category_id, Category.all.pluck(:name, :id), { prompt: 'Select' }, { class: "form-control" } %>
          </p>
          <p class="fieldpadding">
+          <%= form.label :Image ,:class=>"formlabel" %>
+          <%= form.file_field :image , { class: "form-control" } %>
+
+         </p>
+           <p class="fieldpadding">
+          <%= form.label :File ,:class=>"formlabel" %>
+          <%= form.file_field :file , { class: "form-control" } %>
+
+         </p>
+         <p class="fieldpadding">
         <%= form.check_box :checkbox%>
-            If you want to publish your story accept this!!
-      </p>
-          <p>
-            <div class="form-group fieldpadding">
-              <div class=" ">
-                <%= link_to 'Back', articles_path,:class=>"btn btn-warning backbutton" %>
-                <%= form.submit 'save', :class=>"btn btn-success savebutton " %> 
-              </div>
+            Publish this article!
+        </p>
+        <p>
+          <div class="form-group fieldpadding">
+            <div class=" ">
+              <%= link_to 'Back', articles_path,:class=>"btn btn-warning backbutton" %>
+              <%= form.submit 'save', :class=>"btn btn-success savebutton " %> 
             </div>
+          </div>
           </p>
         </div> 
       </div>
-        <% end %>
-      </table>
-    </div>
+    <% end %>
+  </table>
+</div>
+
+
+    
