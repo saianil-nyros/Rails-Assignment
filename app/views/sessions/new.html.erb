@@ -1,0 +1,29 @@
+ <div class="container">
+  <%= form_tag do %>
+   <div>
+        <h3 class=" divider text-dark text-center"><b>Login here</b></h3>
+    </div>
+        <div class="container loginpage">
+        <% if flash[:alert] %>
+         <p id="notice"><%= flash[:alert] %></p>
+    <% end %>
+    <div>
+        <p class="fieldpadding text-dark ">
+        <%= label_tag :name,'username',:class=>"formlabel" %>
+        <%= text_field_tag :name,params[:name], :class=>"form-control formlabel" %>
+        </p>
+       <p class="fieldpadding text-dark">
+        <%= label_tag :password,'password',:class=>"formlabel" %>
+        <%= password_field_tag :password,params[:password], :class=>"form-control formlabel" %>
+        </p>
+    </div>
+        <div>
+        <p class="fieldpadding">
+         <%= submit_tag "Login",:class=>"btn btn-primary"%>   
+        </p>
+        <div class="donthave">
+            <b>Dont have an account?</b>
+        <b><%= link_to 'Signup', new_user_path, :class=>'btn reg'%></b></div></div>
+        </div>
+    </div>
+ <% end %>

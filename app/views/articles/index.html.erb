@@ -1,13 +1,17 @@
-  
-  <div class="container">
+<div class="container">
     <div class="container-fluid showpage">
+       <a href="/logout" class="btn btn-info logout">signout</a>
       <badge class="btn btn-primary textarticles">Articles</badge>
+      <b class="username">Welcome <%=User.find(session[:user_id]).name %>
+      </b>
+    
         <span class="label label-success today"><%= Article.where(created_at: Date.today...Date.today+1).count %></span><b class="today">Today articles posted</b>
-    </div>
+      </div>
+      
     <div class="container mt-3 showtable">
-      <%= link_to 'Post article', new_article_path,:class=>"btn btn-success newarticle"%>
-      <h4 class="btn textarticles"><b class="counttext">Total articles-<badge class="articlecount label label-info"><%= Article.count %></badge></b></h4>
-    <div class="title">
+    <%= link_to 'Post article', new_article_path,:class=>"btn btn-success newarticle"%>
+    <h4 class="btn textarticles"><b class="counttext">Total articles-<badge class="articlecount label label-info"><%= Article.count %></badge></b></h4>
+  <div class="title">
       <h4>Search by title or authorname</h4>
           <%= form_tag(articles_path,method: :get) do %>
           <%= text_field_tag :both %>
@@ -76,7 +80,7 @@
           <td>
             <%= link_to 'View', article_path(article),:class => "btn btn-success"  %>
             <%= link_to 'Edit', edit_article_path(article),:class => "btn btn-warning" %>
-            <%= link_to 'Destroy', '#', "data-toggle"=>"modal", "data-target" => "#delete-#{article.id}",:class=>'btn btn-danger'%>
+            <%= link_to 'Delete', '#', "data-toggle"=>"modal", "data-target" => "#delete-#{article.id}",:class=>'btn btn-danger'%>
             <div class="modal fade" id="delete-<%= article.id %>" role="dialog">
               <div class="modal-dialog">
                 <div class="modal-content">

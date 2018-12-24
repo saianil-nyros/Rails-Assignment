@@ -8,7 +8,6 @@
           <div class=" bg-dark">
             <p class="fieldpadding">
               <%= image_tag("logos/article.png",width:'65px',height:'15px',class: 'img-responsive profile') %>
-             
               <%= form.label :title,:class=>"formlabel" %>
               <%= form.text_field :title,:class=>"form-control  formlabel required"%>
               <small class="errortext"><%= @article.errors.messages[:title].first if @article.errors.messages[:title].any? %>
@@ -22,7 +21,6 @@
            <p class="fieldpadding">
             <%= form.label :Pages,:class=>"formlabel" %>
             <%= form.text_area :nopages,:class=>"form-control formlabel" %>
-             
            </p>
            <p class="fieldpadding">
              <%= @article.author_id%>

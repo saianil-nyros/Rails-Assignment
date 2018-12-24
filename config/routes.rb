@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
-  resources :profiles
-  resources :articles
-  resources :authors
-  root 'authors#new'
-  # get '/home'=>'articles#index'
-  # get '/category'=>'articles#category'
+  get 'admin/index'
+  root 'sessions#create', as: 'index'
 
-  # get '/display'=>'articles#display'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'admin' => 'admin#index'
+  get 'logout' => 'sessions#destroy'
+
+ controller :sessions do
+   get  'login' => :new
+   post 'login' => :create
+   delete 'logout' => :destroy
+
+ end
+  get 'signup',to: 'users#new'
+  get "sessions/create"
+  get "sessions/destroy"
+  get "search/index"
+  post "search/index"
+ resources :users
+ resources :articles
 end
+
