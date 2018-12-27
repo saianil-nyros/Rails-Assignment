@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only:[:new, :create]
+  skip_before_action :authorize, only:[:new, :create,:authenticate]
+  skip_before_action :authenticate ,only:[:authenticate,:create]
  
   def index
     @users = User.all
@@ -55,6 +56,7 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

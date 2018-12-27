@@ -4,8 +4,7 @@
       <badge class="btn btn-primary textarticles">Articles</badge>
       <b class="username">Welcome <%=User.find(session[:user_id]).name %>
       </b>
-    
-        <span class="label label-success today"><%= Article.where(created_at: Date.today...Date.today+1).count %></span><b class="today">Today articles posted</b>
+      <span class="label label-success today"><%= Article.where(created_at: Date.today...Date.today+1).count %></span><b class="today">Today articles posted</b>
       </div>
       
     <div class="container mt-3 showtable">
@@ -45,10 +44,13 @@
         <tr>
           <th>Article Title</th>
           <th>Description</th>
-          <th>No.Pages</th>
+         
           <th>Category</th>
           <th>Author</th>
           <th>Published on date</th>
+          
+          <th>Download</th>
+      
           <th>Article published</th>
           <th>Actions</th>
         </tr>                                 
@@ -59,11 +61,10 @@
             <%= article.title %>
           </td>
           <td>
-            <%= article.description %>
+            <%=article.description.truncate(18) %>
+
           </td>
-           <td>
-            <%= article.nopages %>
-          </td>
+           
           <td>
             <%= article.category.name%>
           </td>
@@ -73,6 +74,11 @@
           <td>
             <%= article.created_at.strftime("%a %d %Y") %>
           </td>
+           <td>
+        <%= link_to 'Download',{:action => "download_pdf", :id => article.id},:class=>"btn btn-xs btn-warning" %>
+     
+          </td>
+         
           <td>
             <%= article.checkbox %>
           </td>
@@ -104,6 +110,7 @@
     </table>
   </div>
     <h4><%= formatted_time %></h4>
+
 </div>
 
 

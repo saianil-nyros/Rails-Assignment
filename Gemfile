@@ -7,7 +7,7 @@ gem 'paperclip', '~> 6.1'
 gem 'mimemagic', '~> 0.3.2'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'chart-js-rails'
-
+gem 'prawn', '~> 2.2', '>= 2.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use mysql as the database for Active Record
