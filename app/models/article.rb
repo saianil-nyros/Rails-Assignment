@@ -31,6 +31,7 @@ class Article < ApplicationRecord
   belongs_to :author
 	belongs_to :category
   has_and_belongs_to_many :readers
+  has_many :comments
 
   scope :published, ->{where(checkbox:true)}
 

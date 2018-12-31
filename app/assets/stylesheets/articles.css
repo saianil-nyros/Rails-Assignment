@@ -38,6 +38,7 @@
 #notice{
 	color: #39242D;
 	font-size: 30px;
+	background-color: grey;
 }
 .donthave{
 	float: right;
@@ -176,6 +177,18 @@ h2{
 small{
 	color: red;
 	font-size: 14px;
+}
+.commentindex{
+	margin-top: 10px;
+}
+.menu{
+	float: right;
+	margin-top: 3px;
+	margin-bottom: 5px;
+}
+.list{
+	margin:0px;
+	margin-left: 0px;
 }
 .footer{
 	color: black;

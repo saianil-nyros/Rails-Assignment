@@ -1,0 +1,25 @@
+<div class="container commentindex">
+  
+
+  <%= link_to "New", new_article_comment_path,:class=>"btn btn-info "%>
+
+
+
+<table class="table table-hover table-striped table-bordered bg-white">
+ <tr>
+   <th>Article Title</th>
+   <th>Commentor name</th>
+   <th>Comment</th>
+ </tr>
+
+ 
+ <% @comments.each do |comment| %>
+   <tr>
+     <td><%= comment.article.title %></td>
+     <td><%= comment.name %></td>
+     <td><%= comment.comment %></td>
+   </tr>
+ <% end %>
+</table>
+<%= link_to "Back to articles" , articles_path,:class=>"btn btn-info" %>
+</div>
