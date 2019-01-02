@@ -4,13 +4,14 @@
     </thead>
     
      <tbody>
+     	 <% @articles.each do |article| %>
        <tr>
        <td>
-         <%= @article.title %>
+         <%= article.title %>
        </td>
        <td>
-       	<%= @article.description %>
+       	<%= article.description %>
        </td>
      </tr>
-   
+   		<% end %>
      </tbody>

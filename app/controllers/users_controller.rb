@@ -7,11 +7,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  
   def show
   end
 
-  
   def new
     @user = User.new
   end
@@ -20,10 +18,9 @@ class UsersController < ApplicationController
   def edit
   end
 
- 
   def create
     @user = User.new(user_params)
-
+    NewUserEmailMailer.notify_user(@user).deliver
     respond_to do |format|
       if @user.save
         format.html { redirect_to articles_url, notice: 'User was successfully created.' }
@@ -66,6 +63,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.require(:user).permit(:name, :password, :password_confirmation,:email)
     end
 end

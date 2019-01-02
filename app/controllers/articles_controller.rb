@@ -20,7 +20,6 @@ class ArticlesController < ApplicationController
   end
     def show
         @article = Article.find(params[:id])
-       
     end
     def new
         @article = Article.new
@@ -55,18 +54,16 @@ class ArticlesController < ApplicationController
        
    end
    def hello
-       
-
+    @article = Article.find(params[:id])
+     Article.order('created_at ASC')
    end
-              
-    def download_pdf
+  def download_pdf
         @article = Article.find(params[:id])
         send_data generate_pdf(@article),
              filename: "#{@article.author.name}.pdf",
              type: "application/pdf"
     end
-
-   def generate_pdf(article)
+    def generate_pdf(article)
         Prawn::Document.new do
 
         text  article.title, align: :center

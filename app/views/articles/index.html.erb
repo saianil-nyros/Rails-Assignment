@@ -12,12 +12,15 @@
             </li>
           </ul>
     </div>
+
+   <!--  <%= link_to 'collection',hello_articles_path(@articles),:class=>"btn btn-xs btn-warning" %> -->
+   
     <div class="container-fluid showpage">
         <badge class="btn btn-primary textarticles">Articles</badge>
       <b class="username">Welcome <%=User.find(session[:user_id]).name %>
       </b>
-
-      <span class="label label-primary today"><%= Article.where(created_at: Date.today...Date.today+1).count %></span><b class="today">Today articles posted</b>
+<!-- <p><%= link_to 'Forgot password?', new_password_reset_path %></p>
+ -->      <span class="label label-primary today"><%= Article.where(created_at: Date.today...Date.today+1).count %></span><b class="today">Today articles posted</b>
       </div>
     
     <div class="container mt-3 showtable">
@@ -83,7 +86,7 @@
           </td>
            <td>
           <%= link_to 'click',display_article_path(article),:class=>"btn btn-xs btn-warning" %>
-          <%= link_to 'collection',hello_articles_path(article),:class=>"btn btn-xs btn-warning" %>
+          
 
           <%= link_to 'Download',{:action => "download_pdf", :id => article.id},:class=>"btn btn-xs btn-warning" %>
           </td>

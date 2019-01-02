@@ -2,6 +2,10 @@ class User < ApplicationRecord
   has_secure_password
  
  validates :name, presence:true,uniqueness:true
+ validates :email, presence:true
+ validates :password, presence: true
+ validates :password_confirmation, confirmation: { case_sensitive: true }
+
  def send_password_reset
   generate_token(:password_reset_token)
   self.password_reset_sent_at = Time.zone.now

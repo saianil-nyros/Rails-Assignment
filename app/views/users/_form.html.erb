@@ -16,6 +16,12 @@
     <small class="errortext"><%= @user.errors.messages[:name].first if @user.errors.messages[:name].any? %>
              </small>
   </div>
+   <div class="fieldpadding">
+    <%= form.label :email,:class=>"formlabel" %>
+    <%= form.text_field :email,:class=>"form-control formlabel" %>
+    <small class="errortext"><%= @user.errors.messages[:email].first if @user.errors.messages[:email].any? %>
+             </small>
+  </div>
   <div class="fieldpadding">
     <%= form.label :password,:class=>"formlabel" %>
     <%= form.password_field :password ,:class=>"form-control formlabel"%>

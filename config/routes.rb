@@ -3,11 +3,9 @@ Rails.application.routes.draw do
   resources :password_resets
   resources :comments
   get "articles/download_pdf"
-  
     #Query string 
-   get'articles/:id', to: 'articles#show'
-
-   # get 'admin/index'
+   # get'articles/:id', to: 'articles#show'
+  # get 'admin/index'
    root 'sessions#create', as: 'index'
    get 'admin' => 'admin#index'
    get 'logout' => 'sessions#destroy'
@@ -28,20 +26,16 @@ Rails.application.routes.draw do
   #Nested route
   resources :articles do
       resources :comments
-     
   end
+  #member
   resources :articles do
      member  do
         get 'display'
       end 
-
   end
-
   resources :articles do
        get 'hello',on: :collection
-    
   end
-  
   # get 'articles/send'
   # get 'articles', to: 'articles#index'
   # post 'articles', to:'articles#create'
@@ -51,6 +45,5 @@ Rails.application.routes.draw do
   # get'/article/:id/show', to:'articles#show', as: :article
   # patch '/article/update', to:'articles#update'
   # delete '/articles/:author_id/articles/:id', to:'articles#destroy'
-
 end
 

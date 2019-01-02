@@ -2,16 +2,16 @@ class PasswordResetsController < ApplicationController
   def new
   end
   def create
-  	user = User.find_by_name(params[:name])
-  user.send_password_reset if user
-  flash[:notice] = 'Name sent with password reset instructions.'
-  redirect_to new_user_path
+  	user = User.find_by_email(params[:email])
+    user.send_password_reset if user
+    flash[:notice] = 'Name sent with password reset instructions.'
+    redirect_to new_user_path
   end
   def edit
-  @user = User.find_by_password_reset_token!(params[:id])
-end
+    @user = User.find_by_password_reset_token!(params[:id])
+  end
 	def update
-  @user = User.find_by_password_reset_token!(params[:id])
+    @user = User.find_by_password_reset_token!(params[:id])
   if @user.password_reset_sent_at < 2.hour.ago
     flash[:notice] = 'Password reset has expired'
     redirect_to new_password_reset_path
