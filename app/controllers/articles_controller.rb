@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
   include TimeHelper
-
-   require "prawn"
+  require "prawn"
   def index
     @articles = if params[:term]
       Article.where('title LIKE ?',"%#{params[:term]}")
@@ -31,7 +30,7 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(article_params)
          if @article.save(validation:true)
-        redirect_to @article, notice: 'Successfully created' 
+            redirect_to @article, notice: 'Successfully created' 
         else
           render 'new'
         end
@@ -53,10 +52,10 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
        
    end
-   def hello
-    @article = Article.find(params[:id])
-     Article.order('created_at ASC')
-   end
+   # def hello
+   #  @article = Article.find(params[:id])
+   #   Article.order('created_at ASC')
+   # end
   def download_pdf
         @article = Article.find(params[:id])
         send_data generate_pdf(@article),
