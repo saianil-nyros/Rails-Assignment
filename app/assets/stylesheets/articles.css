@@ -6,6 +6,16 @@
 	background-color: white;
 
 }
+.alert{
+	color: red;
+	font-size: 20px;
+}
+.loginpagedevise{
+	margin: 0 auto;
+	width: 50%;
+	margin-top: 4%;
+	background-color: #DE9575;
+}
 .loginpage{
 	margin-top: 5px;
 	margin: 0 auto;
@@ -44,6 +54,7 @@
 	float: right;
 	padding: 8px;
 	color: black;
+	display: inline;
 }
 .flashmsg{
 	background-color: lightgreen;

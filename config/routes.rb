@@ -1,28 +1,34 @@
 Rails.application.routes.draw do
-  get 'comments/index'
-  resources :password_resets
+ devise_for :users
+
+ resources :articles
+ root 'articles#index'
+
+ get 'comments/index'
+ 
   resources :comments
   get "articles/download_pdf"
+
     #Query string 
    # get'articles/:id', to: 'articles#show'
-  # get 'admin/index'
-   root 'sessions#create', as: 'index'
-   get 'admin' => 'admin#index'
-   get 'logout' => 'sessions#destroy'
+ #  get 'admin/index'
+ #   root 'sessions#create', as: 'index'
+ #   get 'admin' => 'admin#index'
+ #   get 'logout' => 'sessions#destroy'
 
-   controller :sessions do
-   get   'login' => :new
-   post  'login' => :create
-  # Naming routes
-   get 'logout', to:'sessions#destroy', as: :destroy
- end
-  get 'signup',to: 'users#new'
-  get "sessions/create"
-  get "sessions/destroy"
-  get "search/index"
-  post "search/index"
+ #   controller :sessions do
+ #   get   'login' => :new
+ #   post  'login' => :create
+ #  # Naming routes
+ #   get 'logout', to:'sessions#destroy', as: :destroy
+ # end
+ #  get 'signup',to: 'users#new'
+ #  get "sessions/create"
+ #  get "sessions/destroy"
+ #  get "search/index"
+ #  post "search/index"
 
-  resources :users
+
   #Nested route
   resources :articles do
       resources :comments

@@ -1,0 +1,30 @@
+<div class="container loginpagedevise">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <h2 class="text-center">Log in</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field fieldpadding">
+      <%= f.label :email,:class=>"formlabel" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" , :class=>"form-control formlabel" %>
+    </div>
+    <div class="field fieldpadding">
+      <%= f.label :password,:class=>"formlabel" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", :class=>"form-control formlabel" %>
+  </div>
+  <% if devise_mapping.rememberable? -%>
+    <div class="field fieldpadding">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+  <div class="actions fieldpadding">
+    <%= f.submit "Log in",:class=>'btn btn-primary' %>
+  </div>
+  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<% end %>
+<div class="donthave">
+  <b>Dont have an account? </b>
+    <%= link_to "Sign up", new_registration_path(resource_name),:class=>"btn  reg" %><br/>
+ <!--  <%= render "devise/shared/links" %> -->
+</div>
+</div>

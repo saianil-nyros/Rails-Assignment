@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!
+
   include TimeHelper
   require "prawn"
   def index
@@ -30,7 +32,7 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(article_params)
          if @article.save(validation:true)
-            redirect_to @article, notice: 'Successfully created' 
+           redirect_to @article, notice: 'Successfully created' 
         else
           render 'new'
         end
