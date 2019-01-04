@@ -4,6 +4,10 @@ class ArticlesController < ApplicationController
   include TimeHelper
   require "prawn"
   def index
+    if current_user
+     @user = current_user.email
+   else
+     redirect_to new_user_session_path, notice: 'You are not logged in.'
     @articles = if params[:term]
       Article.where('title LIKE ?',"%#{params[:term]}")
       elsif params[:term1]
